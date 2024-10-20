@@ -48,6 +48,7 @@ fun FinalView(navController: NavController, id: String, opcional: String?) {
     }
 }
 
+
 @Composable
 fun ContentFinalView(navController: NavController, id: String, opcional: String?) {
     Column(
