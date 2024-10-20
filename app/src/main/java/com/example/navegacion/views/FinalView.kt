@@ -56,7 +56,7 @@ fun ContentFinalView(navController: NavController, id: String, opcional: String?
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        TitleView(name = "Detail View")
+        TitleView(name = "Final View")
         Space()
         TitleView(name = id)
         Space()
