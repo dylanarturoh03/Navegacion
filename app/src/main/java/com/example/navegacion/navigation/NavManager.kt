@@ -7,6 +7,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.navegacion.views.DetailView
+import com.example.navegacion.views.FinalView
 import com.example.navegacion.views.HomeView
 
 @Composable
@@ -17,12 +18,20 @@ fun NavManager(){
             HomeView(navController)
         }
         composable("Detail/{id}/?{opcional}", arguments = listOf(
-            navArgument("id") { type = NavType.IntType },
+            navArgument("id") { type = NavType.StringType },
             navArgument("opcional") { type = NavType.StringType },
         )){
-            val id = it.arguments?.getInt("id") ?: 0
+            val id = it.arguments?.getString("id") ?: ""
             val opcional = it.arguments?.getString("opcional") ?: ""
             DetailView(navController, id, opcional)
+        }
+        composable("Final/{id}/?{opcional}", arguments = listOf(
+            navArgument("id") { type = NavType.StringType},
+            navArgument("opcional") { type = NavType.StringType},
+        )){
+            val id = it.arguments?.getString("id") ?: ""
+            val opcional = it.arguments?.getString("opcional") ?: ""
+            FinalView(navController, id, opcional)
         }
     }
 }

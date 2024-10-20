@@ -28,13 +28,13 @@ import com.example.navegacion.components.TitleView
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun DetailView(navController: NavController, id: String, opcional: String?) {
+fun FinalView(navController: NavController, id: String, opcional: String?) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { TitleBar(name = "Detail view") },
+                title = { TitleBar(name = "Final view") },
                 colors = TopAppBarDefaults.mediumTopAppBarColors(
-                    containerColor = Color.Blue
+                    containerColor = Color.Magenta
                 ),
                 navigationIcon = {
                     MainIconButton(icon = Icons.Default.ArrowBack) {
@@ -44,12 +44,12 @@ fun DetailView(navController: NavController, id: String, opcional: String?) {
             )
         }
     ) {
-        ContentDetailView(navController, id, opcional)
+        ContentFinalView(navController, id, opcional)
     }
 }
 
 @Composable
-fun ContentDetailView(navController: NavController, id: String, opcional: String?) {
+fun ContentFinalView(navController: NavController, id: String, opcional: String?) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -64,12 +64,8 @@ fun ContentDetailView(navController: NavController, id: String, opcional: String
         }else{
             TitleView(name = opcional.orEmpty())
         }
-        MainButton(name = "Final View", backColor = Color.Blue, color = Color.White) {
-            navController.navigate("Final/${id}/?${opcional}")
-        }
-        Space()
-        MainButton(name = "Return home", backColor = Color.Red, color = Color.White) {
-            navController.popBackStack()
+        MainButton(name = "Return home", backColor = Color.Magenta, color = Color.White) {
+            navController.navigate("Home")
         }
 
     }
